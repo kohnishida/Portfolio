@@ -1,0 +1,180 @@
+@charset "UTF-8";
+@import url(reset.css);
+
+body{
+    font-family: 'DotGothic16', sans-serif;
+    font-family: 'Press Start 2P', cursive;
+    background: rgb(231, 238, 206);
+    color: rgb(61, 61, 61);
+}
+
+.firstview{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    border: 40px rgb(48, 49, 43) solid;
+    box-sizing: border-box;
+}
+.firstview > h1{
+    font-size: 24px;
+}
+
+.TextTyping span {
+	display: none;
+}
+
+/*文字列後ろの線の設定*/
+.TextTyping::after {
+ 	content: "|";
+	animation: typinganime .8s ease infinite;
+}
+
+@keyframes typinganime{
+	from{opacity:0}
+	to{opacity:1}
+}
+
+main h2{
+    text-align: center;
+    font-size: 24px;
+}
+main{
+    border: 40px rgb(48, 49, 43) solid;
+    border-top: none;
+    padding-top: 40px;
+}
+main > .container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 70%;
+    margin: 60px auto;
+}
+main > .container > section{
+    width: 45%;
+    margin-bottom: 60px;
+    font-family: 'DotGothic16', sans-serif;
+    font-size: 14px;
+}
+main > .container > section figcaption{
+    line-height: 1.3;
+}
+main > .container > section figcaption span.title{
+    font-size: 18px;
+}
+.mask{
+    position: relative;
+    display: block;
+    line-height: 0;
+    overflow: hidden;
+}
+.mask::before{
+    position: absolute;
+    content: "";
+    width: 50%;
+    height: 100%;
+    top: 0;
+    left: -75%;
+    background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 100%);
+    transform: skewX(-25deg);
+    z-index: 1;
+}
+.zoomIn .mask:hover::before{
+    animation: shine 0.7s;
+}
+@keyframes shine{
+    100%{
+        left: 125%;
+    }
+}
+.zoomIn img{
+    width: 100%;
+    height: auto;
+    filter: sepia(80%) hue-rotate(26deg);
+    transform: scale(1);
+    transition: .3s ease-in-out;
+}
+.zoomIn .mask:hover img{
+    transform: scale(1.05);
+    filter: sepia(0%);
+}
+.zoomIn{
+    border-top: 24px rgb(48, 49, 43) solid;
+    border-bottom: 24px rgb(48, 49, 43) solid;
+    border-right: 32px rgb(48, 49, 43) solid;
+    border-left: 32px rgb(48, 49, 43) solid;
+    border-radius: 4px 4px 20px 4px;
+    margin-bottom: 10px;
+}
+
+
+aside{
+    font-family: 'DotGothic16', sans-serif;
+    border-right: 40px rgb(48, 49, 43) solid;
+    border-left: 40px rgb(48, 49, 43) solid;
+    text-align: center;
+    padding: 40px 0;
+    height: 500px;
+}
+aside > section:first-child span{
+    font-size: 80px;
+}
+aside section h3{
+    font-size: 24px;
+    padding-bottom: 100px;
+}
+aside section > p{
+    padding-bottom: 16px;
+    font-size: 18px;
+}
+aside section div{
+    width: 210px;
+    margin: 0 auto 40px;
+    text-align: left;
+}
+aside a{
+    color: rgb(61, 61, 61);
+}
+
+footer{
+    border-right: 40px rgb(48, 49, 43) solid;
+    border-left: 40px rgb(48, 49, 43) solid;
+    border-bottom: 40px rgb(48, 49, 43) solid;
+    text-align: center;
+    padding-bottom: 12px;
+}
+
+@media (max-width: 1000px){
+    main > .container{
+        display: block;
+    }
+    main > .container > section{
+        width: 100%;
+    }
+}
+@media (max-width: 400px){
+    .firstview {
+        border: 20px rgb(48, 49, 43) solid;
+    }
+    main {
+        border: 20px rgb(48, 49, 43) solid;
+    }
+    .zoomIn{
+        border-top: 16px rgb(48, 49, 43) solid;
+        border-bottom: 16px rgb(48, 49, 43) solid;
+        border-right: 24px rgb(48, 49, 43) solid;
+        border-left: 24px rgb(48, 49, 43) solid;
+    }
+    aside{
+        border-right: 20px rgb(48, 49, 43) solid;
+        border-left: 20px rgb(48, 49, 43) solid;
+    }
+    footer{
+        border-right: 20px rgb(48, 49, 43) solid;
+        border-left: 20px rgb(48, 49, 43) solid;
+        border-bottom: 20px rgb(48, 49, 43) solid;
+    }
+}
